@@ -1,0 +1,482 @@
+/*
+----------------------------------------
+Tantek Celik's Whitepsace Reset
+     Author:    Tantek Celik, Shane Riley
+    Version:    (CC) 2010 Some Rights Reserved - http://creativecommons.org/licenses/by/2.0
+Description:  Resets default styling of common browsers to a common base
+----------------------------------------
+*/
+html { box-sizing: border-box; }
+*, *:before, *:after { box-sizing: inherit; }
+ul,ol { list-style: none; }
+h1,h2,h3,h4,h5,h6,pre,code { font-size: 1em; font-weight: normal; }
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input,dl,dt,dd, figure, figcaption {
+  margin: 0;
+  padding: 0; }
+a img,:link img,:visited img, fieldset { border: none; }
+address { font-style: normal; }
+header, section, article, nav, footer, hgroup, details, summary, figure, main { display: block; }
+mark {
+  color: inherit;
+  background: transparent; }
+abbr { border: none; }
+summary::-webkit-details-marker { display: none; }
+
+
+/*
+----------------------------------------
+Styling
+----------------------------------------
+0. General Styles
+  0.1 Grid
+  0.2 Logo
+  0.3 Typography
+  0.4 Buttons
+1. Navigation
+  1a. Hamburger menu
+2. Body
+3. Home
+*/
+
+/**** (0) GENERAL STYLES ****/
+html {
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #30343D;
+}
+
+a { 
+  text-decoration: none;
+  color: #30343D;
+  transition: 0.2s;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+img {
+  margin-bottom: 20px;
+}
+
+/* (0.1) Grid */
+.l-container {
+  padding: 40px 20px;
+}
+
+.l-row {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.l-center {
+  text-align: center;
+}
+
+.l-row::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.l-lg-v-padding {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+@media only screen and (min-width: 768px) {
+  .l-6-col,
+  .l-4-col {
+    float: left;
+    margin: 0 20px;
+  }
+  .l-6-col {
+    width: calc(50% - 40px);
+  }
+  
+  .l-4-col {
+    width: calc(33.33% - 40px);
+  }
+}
+
+
+/* (0.2) Logo */
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+        align-items: center;
+  font-size: 1.25em; 
+}
+
+.logo img {
+  margin-right: 10px;
+  margin-bottom: 0;
+}
+
+/* (0.3) Typography */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-bottom: 20px;
+}
+
+p {
+  margin-bottom: 10px;
+  font-size: 0.875em;
+}
+
+h1,
+.h1 {
+  font-weight: bold;
+  font-size: 1.875em;
+}
+
+h2,
+.h2 {
+  font-size: 1.25em;
+}
+
+@media only screen and (min-width: 768px) {
+  h1,
+  .h1 {
+    font-size: 2.5em;
+  }
+}
+
+/* (0.4) Buttons */
+.btn-primary,
+.btn-secondary {
+  display: block;
+  padding: 20px;
+  font-weight: bold;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  min-width: 310px;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: #FCBB00;
+  font-size: 1.125em;
+}
+
+.btn-secondary {
+  border: 2px solid#FCBB00;
+}
+
+.link-primary {
+  font-weight: bold;
+  color: #FCBB00;
+}
+
+@media only screen and (min-width: 600px) {
+  .btn-primary,
+  .btn-secondary {
+    display: inline-block;
+  }
+}
+
+/**** (1) NAVIGATION ****/
+nav {
+  padding: 25px 20px;
+  background-color: #DDDDDD;
+  position: fixed;
+  height: 125px;
+  width: 100%;
+  z-index: 2;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  font-size: 1em;
+}
+
+nav .logo {
+  width: 200px;
+}
+
+@media only screen and (min-width: 768px) {
+  .nav-container {
+    padding: 0 20px;
+  }
+}
+
+/* (1a) Hamburger Menu */
+#nav-toggle-label {
+  display: block;
+}
+
+.nav-menu {
+  display: none;
+}
+
+.nav-menu a {
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+#hamburger span {
+  display: block;
+}
+
+ #nav-toggle:checked ~ .nav-menu {
+  background-color: white;
+  display: inline-block;
+  padding: 20px;
+  margin-top: 25px;
+  position: absolute;
+  right: 0;
+  top: 100px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#nav-toggle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  -webkit-opacity: 0;
+  -ms-opacity: 0;
+  -moz-opacity: 0;
+  -o-opacity: 0;
+  opacity: 0;
+}
+
+#nav-toggle-label {
+  height: 80px;
+  width: 60px;
+  position: fixed;
+  z-index: 12;
+  right: 0;
+  top: 45px;
+  -webkit-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  cursor: pointer;
+  -webkit-transition: 0.25s ease-in-out;
+  -ms-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+#hamburger {
+  display: block;
+  float: right;
+  position: absolute;
+  height: 28px;
+  width: 40px;
+  top: 0;
+  right: 28px;
+  color: #30343D;
+}
+
+#hamburger span {
+  width: 100%;
+  height: 6px;
+  position: relative;
+  margin: 0 0 7px 0;
+  background: #30343D;
+  transition: width 0.3s;
+}
+
+#hamburger span:nth-child(1) {
+  -webkit-transition-delay: 0.5s;
+  -ms-transition-delay: 0.5s;
+  -moz-transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+#hamburger span:nth-child(2) {
+  -webkit-transition-delay: 0.625s;
+  -ms-transition-delay: 0.625s;
+  -moz-transition-delay: 0.625s;
+  -o-transition-delay: 0.625s;
+  transition-delay: 0.625s;
+}
+
+#hamburger span:nth-child(3) {
+  -webkit-transition-delay: 0.75s;
+  -ms-transition-delay: 0.75s;
+  -moz-transition-delay: 0.75s;
+  -o-transition-delay: 0.75s;
+  transition-delay: 0.75s;
+}
+
+#nav-toggle:checked + #nav-toggle-label #hamburger span {
+  width: 0%;
+}
+
+#nav-toggle:checked + #nav-toggle-label #hamburger span:nth-child(1) {
+  -webkit-transition-delay: 0s;
+  -ms-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+  
+}
+
+#nav-toggle:checked + #nav-toggle-label #hamburger span:nth-child(2) {
+  
+  -webkit-transition-delay: 0.125s;
+  -ms-transition-delay: 0.125s;
+  -moz-transition-delay: 0.125s;
+  -o-transition-delay: 0.125s;
+  transition-delay: 0.125s;
+}
+
+#nav-toggle:checked + #nav-toggle-label #hamburger span:nth-child(3) {
+  
+  -webkit-transition-delay: 0.25s;
+  -ms-transition-delay: 0.25s;
+  -moz-transition-delay: 0.25s;
+  -o-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+}
+
+
+#cross {
+  display: block;
+  position: absolute;
+  right: 28px;
+  top: -5px;
+  width: 40px;
+  height: 40px;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+#cross span {
+  display: block;
+  background: #30343D;
+  transition: 0.3s;
+}
+
+#cross span:nth-child(1) {
+  height: 0%;
+  width: 6px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -1px;
+  -ms-transition-delay: 0s;
+  -moz-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+  
+}
+
+#cross span:nth-child(2) {
+  width: 0%;
+  height: 6px;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  margin-top: -1px;
+  -webkit-transition-delay: 0.125s;
+  -ms-transition-delay: 0.125s;
+  -moz-transition-delay: 0.125s;
+  -o-transition-delay: 0.125s;
+  transition-delay: 0.125s;
+}
+
+#nav-toggle:checked + #nav-toggle-label #cross span:nth-child(1) {
+  height: 100%;
+  -webkit-transition-delay: 0s;
+  -webkit-transition-delay: 0.5s;
+  -ms-transition-delay: 0.5s;
+  -moz-transition-delay: 0.5s;
+  -o-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+#nav-toggle:checked + #nav-toggle-label #cross span:nth-child(2) {
+  width: 100%;
+  -webkit-transition-delay: 0.625s;
+  -ms-transition-delay: 0.625s;
+  -moz-transition-delay: 0.625s;
+  -o-transition-delay: 0.625s;
+  transition-delay: 0.625s;
+}
+
+@media only screen and (min-width: 768px) {
+  #nav-toggle-label,
+  #nav-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+            align-items: center;
+    width: calc(100% - 200px);
+  }
+
+  .nav-menu li {
+    display: inline-block;
+    float: right;
+    padding: 0 30px;
+  }
+
+  .nav-menu a {
+    margin-bottom: 0;
+  }
+}
+
+
+/**** (2) BODY ****/
+main {
+  padding-top: 125px;
+  position: relative;
+  z-index: 1;
+}
+
+.icon-with-info {
+  margin-bottom: 80px;
+}
+
+.icon-with-info img {
+  height: 130px;
+}
+
+/**** (3) HOME ****/
+.home-intro {
+  background-color: #F6F6F6;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* (3.1) Home intro section */
+
+@media only screen and (min-width: 768px) {
+  .home-intro .l-row {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .home-intro img {
+    margin-bottom: 0;
+  }
+
+  .home-intro-text {
+    text-align: left;
+  }
+}
