@@ -1,20 +1,20 @@
 Approach to task
 
-Given the 1 hour timeframe, I decided to prioritize the following things:
+I decided to prioritize the following things during the hour:
 1. Quickly set up document using my git jist and used a simple CSS-reset
-2. Wrote out semantic HTML to establish the skeleton of the website
+2. Used semantic HTML to create the skeleton of the website
 3. Optimized assets before uploading using tiny.png
-4. Copy/pasted an existing hamburger code I have in my “code library” for speed
-5. Executed a “first-run” of mock-up styles
+4. Copy/pasted an existing hamburger code I have in my personal “code library” for speed
+5. Executed a “first-run” of CSS styling
 6. Established a preliminary grid system without an external framework
-7. Used a mobile-first approach to tackle responsiveness
-8. Established some preliminary organization of stylesheet + general classes
+7. Used a mobile-first approach for responsiveness
+8. Applied some initial organization to stylesheet and reusable classes
 
 Things I did not prioritize:
 1. Web accessibility
 2. Cross-browser and older browser considerations
 3. Retina display
-4. Comments in code
-5. Tweaking some of the CSS to capture all the details of the mock-up (also, the hamburger menu needs tweaking too)
-6. Font family, font sizing/ratio selection was not perfect (stylesheet would be helpful from designers)
-7. I did not think too deeply about class naming/longevity of creating a design system (the grid system could be re-thought as well)
+4. Code commenting
+5. There is some tweaking that still needs to be done with styling (I see you, hamburger menu :P)
+6. Font family, font sizing/ratio selection wasn't exact (design style guide needed)
+7. Class naming could potentially be improved and did not address longevity of a design system (the grid system could be re-thought as well)
